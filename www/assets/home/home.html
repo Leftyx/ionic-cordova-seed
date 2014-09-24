@@ -1,0 +1,16 @@
+﻿<ion-view title="home">
+    <ion-content class="padding">
+        <h1>HOME</h1>
+
+        <ion-list>
+            <ion-item ng-repeat="contact in vm.contacts">
+                Hello, {{contact.name}}!
+            </ion-item>
+        </ion-list>
+
+        <button class="button button-outline button-positive button-full" ng-click="vm.getData()">
+            fetch data!
+        </button>
+
+    </ion-content>
+</ion-view>
