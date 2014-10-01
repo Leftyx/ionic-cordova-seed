@@ -1,7 +1,7 @@
 ionic-cordova-seed
 ==================
 
-rev 1.1
+rev 1.2
 
 Libraries:
 
