@@ -5,6 +5,7 @@
     var app = angular.module('n7seedApp', [
         'ionic',
         'ngCordova',
+        'Common.Filters',
         'n7seedApp.Services'
     ]);
 
@@ -22,9 +23,7 @@
         });
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-
             $log.info("$rootScope => $stateChangeStart => " + toState.name || '');
-
         });
 
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
@@ -36,6 +35,18 @@
 
         $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             $log.debug('$stateChangeSuccess to [' + toState.name + '] => fired once the state transition is complete.');
+        });
+
+        $rootScope.$on('$viewContentLoaded', function (event) {
+            $log.debug('$viewContentLoaded - fired after dom rendered');
+            $log.debug(event);
+        });
+
+        $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+            $log.debug('$stateNotFound ' + unfoundState.to + '  - fired when a state cannot be found by its name.');
+            $log.debug(unfoundState);
+            $log.debug(fromState);
+            $log.debug(fromParams);
         });
 
     }])
